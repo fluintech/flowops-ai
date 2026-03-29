@@ -22,7 +22,7 @@ function parseIdentityMd(): { name: string; creature: string; emoji: string } {
       emoji: emojiMatch?.[1]?.match(/./u)?.[0] || '🤖',
     };
   } catch {
-    return { name: 'OpenClaw Agent', creature: 'AI Agent', emoji: '🤖' };
+    return { name: 'FlowOps AI Agent', creature: 'AI Agent', emoji: '🤖' };
   }
 }
 

@@ -288,7 +288,7 @@ export function Sidebar() {
             className="px-4 py-2 text-xs"
             style={{ color: "var(--text-muted)" }}
           >
-            OpenClaw Agent
+            FlowOps AI Agent
           </div>
 
           <button

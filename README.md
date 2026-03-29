@@ -160,17 +160,7 @@ Login at `http://localhost:3000` with the `ADMIN_PASSWORD` you set.
 
 ## Production Deployment
 
-### PM2 (recommended)
-
-```bash
-npm run build
-
-pm2 start npm --name "flowops-ai" -- start
-pm2 save
-pm2 startup   # enable auto-restart on reboot
-```
-
-### systemd
+### systemd (recommended)
 
 Create `/etc/systemd/system/flowops-ai.service`:
 
@@ -196,6 +186,16 @@ WantedBy=multi-user.target
 sudo systemctl daemon-reload
 sudo systemctl enable flowops-ai
 sudo systemctl start flowops-ai
+```
+
+### PM2 (optional)
+
+```bash
+npm run build
+
+pm2 start npm --name "flowops-ai" -- start
+pm2 save
+pm2 startup   # enable auto-restart on reboot
 ```
 
 ### Reverse proxy — Caddy (HTTPS)
@@ -303,7 +303,7 @@ flowops-ai/
 │   │   ├── login/            # Login page
 │   │   └── office/           # 3D office (unprotected route)
 │   ├── components/
-│   │   ├── FlowOpsAI/        # OS-style UI shell (topbar, dock, status bar)
+│   │   ├── TenacitOS/        # OS-style UI shell (topbar, dock, status bar)
 │   │   └── Office3D/         # React Three Fiber 3D office
 │   ├── config/
 │   │   └── branding.ts       # Branding constants (reads from env vars)

@@ -11,6 +11,7 @@ import { logActivity } from '@/lib/activities-db';
 const execAsync = promisify(exec);
 
 const WORKSPACE = process.env.OPENCLAW_DIR ? `${process.env.OPENCLAW_DIR}/workspace` : '/root/.openclaw/workspace';
+const APP_HEALTH_URL = process.env.APP_HEALTH_URL || 'http://localhost:3000';
 
 interface ActionResult {
   action: string;
@@ -105,10 +106,10 @@ async function runAction(action: string): Promise<ActionResult> {
 
         // Ping the main site
         try {
-          const { stdout: ping } = await execAsync('curl -s -o /dev/null -w "%{http_code}" --max-time 5 https://tenacitas.cazaustre.dev');
-          results.push(`\n🌐 tenacitas.cazaustre.dev: HTTP ${ping.trim()}`);
+          const { stdout: ping } = await execAsync(`curl -s -o /dev/null -w "%{http_code}" --max-time 5 "${APP_HEALTH_URL}"`);
+          results.push(`\n🌐 ${APP_HEALTH_URL}: HTTP ${ping.trim()}`);
         } catch {
-          results.push('\n🌐 tenacitas.cazaustre.dev: unreachable');
+          results.push(`\n🌐 ${APP_HEALTH_URL}: unreachable`);
         }
 
         output = results.join('\n');

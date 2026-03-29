@@ -132,7 +132,7 @@ export default function SettingsPage() {
       >
         <div className="flex items-center justify-between text-sm" style={{ color: "var(--text-muted)" }}>
           <span>FlowOps AI v1.0.0</span>
-          <span>OpenClaw Agent Dashboard</span>
+          <span>FlowOps AI Agent Dashboard</span>
         </div>
       </div>
     </div>

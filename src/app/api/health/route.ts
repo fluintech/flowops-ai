@@ -7,6 +7,7 @@ import { exec } from 'child_process';
 import { promisify } from 'util';
 
 const execAsync = promisify(exec);
+const APP_HEALTH_URL = process.env.APP_HEALTH_URL || 'http://localhost:3000';
 
 interface ServiceCheck {
   name: string;
@@ -71,15 +72,15 @@ export async function GET() {
 
   // External URLs
   const urlChecks = await Promise.all([
-    checkUrl('https://tenacitas.cazaustre.dev'),
+    checkUrl(APP_HEALTH_URL),
     checkUrl('https://api.anthropic.com', 3000),
   ]);
 
   checks.push({
-    name: 'tenacitas.cazaustre.dev',
+    name: 'FlowOps AI URL',
     status: urlChecks[0].status,
     latency: urlChecks[0].latency,
-    url: 'https://tenacitas.cazaustre.dev',
+    url: APP_HEALTH_URL,
   });
 
   checks.push({
