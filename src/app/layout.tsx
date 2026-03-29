@@ -19,7 +19,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Mission Control - OpenClaw",
+  title: "FlowOps AI - OpenClaw",
   description: "Your OpenClaw agent dashboard",
   manifest: "/manifest.json",
   themeColor: "#1a1a2e",

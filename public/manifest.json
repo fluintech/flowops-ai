@@ -1,6 +1,6 @@
 {
-  "name": "Mission Control",
-  "short_name": "MissionCtrl",
+  "name": "FlowOps AI",
+  "short_name": "FlowOpsAI",
   "start_url": "/",
   "display": "standalone",
   "theme_color": "#1a1a2e",
