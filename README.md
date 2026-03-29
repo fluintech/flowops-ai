@@ -80,7 +80,7 @@ The app uses `OPENCLAW_DIR` to locate `openclaw.json` and all workspaces. **No m
 
 ```bash
 cd /root/.openclaw/workspace   # or your OPENCLAW_DIR/workspace
-git clone https://github.com/carlosazaustre/flowops-ai.git flowops-ai
+git clone https://github.com/fluintech/flowops-ai.git flowops-ai
 cd flowops-ai
 npm install
 ```
