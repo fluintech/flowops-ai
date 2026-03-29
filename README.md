@@ -1,8 +1,8 @@
-# TenacitOS — Mission Control
+# FlowOps AI
 
 A real-time dashboard and control center for [OpenClaw](https://openclaw.ai) AI agent instances. Built with Next.js, React 19, and Tailwind CSS v4.
 
-> **TenacitOS** lives inside your OpenClaw workspace and reads its configuration, agents, sessions, memory, and logs directly from the host. No extra database or backend required — OpenClaw is the backend.
+> **FlowOps AI** lives inside your OpenClaw workspace and reads its configuration, agents, sessions, memory, and logs directly from the host. No extra database or backend required — OpenClaw is the backend.
 
 ---
 
@@ -58,7 +58,7 @@ A real-time dashboard and control center for [OpenClaw](https://openclaw.ai) AI 
 
 ## How it works
 
-TenacitOS reads directly from your OpenClaw installation:
+FlowOps AI reads directly from your OpenClaw installation:
 
 ```
 /root/.openclaw/              ← OPENCLAW_DIR (configurable)
@@ -67,7 +67,7 @@ TenacitOS reads directly from your OpenClaw installation:
 ├── workspace-studio/         ← sub-agent workspaces
 ├── workspace-infra/
 ├── ...
-└── workspace/mission-control/ ← TenacitOS lives here
+└── workspace/flowops-ai/ ← FlowOps AI lives here
 ```
 
 The app uses `OPENCLAW_DIR` to locate `openclaw.json` and all workspaces. **No manual agent configuration needed** — agents are auto-discovered from `openclaw.json`.
@@ -80,8 +80,8 @@ The app uses `OPENCLAW_DIR` to locate `openclaw.json` and all workspaces. **No m
 
 ```bash
 cd /root/.openclaw/workspace   # or your OPENCLAW_DIR/workspace
-git clone https://github.com/carlosazaustre/tenacitOS.git mission-control
-cd mission-control
+git clone https://github.com/carlosazaustre/tenacitOS.git flowops-ai
+cd flowops-ai
 npm install
 ```
 
@@ -106,7 +106,7 @@ AUTH_SECRET=your-random-32-char-secret-here
 # OPENCLAW_DIR=/root/.openclaw
 
 # --- Branding (customize for your instance) ---
-NEXT_PUBLIC_AGENT_NAME=Mission Control
+NEXT_PUBLIC_AGENT_NAME=FlowOps AI
 NEXT_PUBLIC_AGENT_EMOJI=🤖
 NEXT_PUBLIC_AGENT_DESCRIPTION=Your AI co-pilot, powered by OpenClaw
 NEXT_PUBLIC_AGENT_LOCATION=             # e.g. "Madrid, Spain"
@@ -116,8 +116,8 @@ NEXT_PUBLIC_AGENT_AVATAR=               # path to image in /public, e.g. "/avata
 NEXT_PUBLIC_OWNER_USERNAME=your-username
 NEXT_PUBLIC_OWNER_EMAIL=your-email@example.com
 NEXT_PUBLIC_TWITTER_HANDLE=@username
-NEXT_PUBLIC_COMPANY_NAME=MISSION CONTROL, INC.
-NEXT_PUBLIC_APP_TITLE=Mission Control
+NEXT_PUBLIC_COMPANY_NAME=FlowOps AI, Inc.
+NEXT_PUBLIC_APP_TITLE=FlowOps AI
 ```
 
 > **Tip:** `OPENCLAW_DIR` defaults to `/root/.openclaw`. If your OpenClaw is installed elsewhere, set this variable.
@@ -165,24 +165,24 @@ Login at `http://localhost:3000` with the `ADMIN_PASSWORD` you set.
 ```bash
 npm run build
 
-pm2 start npm --name "mission-control" -- start
+pm2 start npm --name "flowops-ai" -- start
 pm2 save
 pm2 startup   # enable auto-restart on reboot
 ```
 
 ### systemd
 
-Create `/etc/systemd/system/mission-control.service`:
+Create `/etc/systemd/system/flowops-ai.service`:
 
 ```ini
 [Unit]
-Description=TenacitOS — OpenClaw Mission Control
+Description=FlowOps AI dashboard for OpenClaw
 After=network.target
 
 [Service]
 Type=simple
 User=root
-WorkingDirectory=/root/.openclaw/workspace/mission-control
+WorkingDirectory=/root/.openclaw/workspace/flowops-ai
 ExecStart=/usr/bin/npm start
 Restart=always
 RestartSec=10
@@ -194,14 +194,14 @@ WantedBy=multi-user.target
 
 ```bash
 sudo systemctl daemon-reload
-sudo systemctl enable mission-control
-sudo systemctl start mission-control
+sudo systemctl enable flowops-ai
+sudo systemctl start flowops-ai
 ```
 
 ### Reverse proxy — Caddy (HTTPS)
 
 ```caddy
-mission-control.yourdomain.com {
+flowops-ai.yourdomain.com {
     reverse_proxy localhost:3000
 }
 ```
@@ -295,7 +295,7 @@ See [docs/COST-TRACKING.md](./docs/COST-TRACKING.md) for details.
 ## Project Structure
 
 ```
-mission-control/
+flowops-ai/
 ├── src/
 │   ├── app/
 │   │   ├── (dashboard)/      # Dashboard pages (protected)
@@ -303,7 +303,7 @@ mission-control/
 │   │   ├── login/            # Login page
 │   │   └── office/           # 3D office (unprotected route)
 │   ├── components/
-│   │   ├── TenacitOS/        # OS-style UI shell (topbar, dock, status bar)
+│   │   ├── FlowOpsAI/        # OS-style UI shell (topbar, dock, status bar)
 │   │   └── Office3D/         # React Three Fiber 3D office
 │   ├── config/
 │   │   └── branding.ts       # Branding constants (reads from env vars)

@@ -124,4 +124,4 @@ We follow coordinated vulnerability disclosure:
 3. We release a patched version
 4. Disclosure is made public after patch is available
 
-Thank you for helping keep Mission Control secure! 🔒
+Thank you for helping keep FlowOps AI secure! 🔒
