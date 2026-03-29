@@ -8,7 +8,7 @@ A real-time dashboard and control center for [OpenClaw](https://openclaw.ai) AI 
 
 ## Features
 
-- **📊 System Monitor** — Real-time VPS metrics (CPU, RAM, Disk, Network) + PM2/Docker status
+- **📊 System Monitor** — Real-time VPS metrics (CPU, RAM, Disk, Network) + systemd/PM2 status
 - **🤖 Agent Dashboard** — All agents, their sessions, token usage, model, and activity status
 - **💰 Cost Tracking** — Real cost analytics from OpenClaw sessions (SQLite)
 - **⏰ Cron Manager** — Visual cron manager with weekly timeline, run history, and manual triggers
