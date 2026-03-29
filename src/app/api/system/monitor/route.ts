@@ -6,7 +6,7 @@ import os from "os";
 const execAsync = promisify(exec);
 
 // Services monitored per backend
-const SYSTEMD_SERVICES = ["mission-control"];
+const SYSTEMD_SERVICES = ["flowops-ai"];
 const PM2_SERVICES = ["classvault", "content-vault", "postiz-simple", "brain"];
 // creatoros not deployed yet — shown as "not_deployed"
 const PLACEHOLDER_SERVICES = [
@@ -60,7 +60,7 @@ function normalizePm2Status(status: string): string {
 
 // Friendly display names for PM2 process names
 const SERVICE_DESCRIPTIONS: Record<string, string> = {
-  "mission-control": "Mission Control – Tenacitas Dashboard",
+  "flowops-ai": "FlowOps AI – Tenacitas Dashboard",
   classvault: "ClassVault – LMS Platform",
   "content-vault": "Content Vault – Draft Management Webapp",
   "postiz-simple": "Postiz – Social Media Scheduler",
@@ -258,7 +258,7 @@ export async function GET() {
     const staticFirewallRules: FirewallRule[] = [
       { port: "80/tcp", action: "ALLOW", from: "Anywhere", comment: "Public HTTP" },
       { port: "443/tcp", action: "ALLOW", from: "Anywhere", comment: "Public HTTPS" },
-      { port: "3000", action: "ALLOW", from: "Tailscale (100.64.0.0/10)", comment: "Mission Control via Tailscale" },
+      { port: "3000", action: "ALLOW", from: "Tailscale (100.64.0.0/10)", comment: "FlowOps AI via Tailscale" },
       { port: "22", action: "ALLOW", from: "Tailscale (100.64.0.0/10)", comment: "SSH via Tailscale only" },
     ];
     try {

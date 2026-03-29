@@ -57,11 +57,11 @@ export async function GET() {
   const checks: ServiceCheck[] = [];
 
   // Internal services
-  const [missionControl, gateway] = await Promise.all([
-    checkSystemdService('mission-control'),
+  const [flowOpsAi, gateway] = await Promise.all([
+    checkSystemdService('flowops-ai'),
     checkSystemdService('openclaw-gateway'),
   ]);
-  checks.push({ ...missionControl, name: 'Mission Control' });
+  checks.push({ ...flowOpsAi, name: 'FlowOps AI' });
   checks.push({ ...gateway, name: 'OpenClaw Gateway' });
 
   // PM2 services
