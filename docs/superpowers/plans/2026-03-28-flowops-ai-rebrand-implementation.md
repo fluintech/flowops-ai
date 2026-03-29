@@ -39,7 +39,7 @@ Run:
 wc -l tmp/rebrand-scan-before.txt
 head -n 20 tmp/rebrand-scan-before.txt
 ```
-Expected: número de ocorrências inicial documentado para comparação final; count registrado em artefato de baseline.
+Expected: número de ocorrências inicial documentado para comparação final.
 
 - [x] **Step 3: Commit**
 
