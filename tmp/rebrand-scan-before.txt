@@ -1,0 +1,131 @@
+ROADMAP.md:1:# 🦞 Mission Control - Roadmap
+ROADMAP.md:8:- [ ] Hook en OpenClaw para loguear automáticamente cada tool call
+ROADMAP.md:13:- [ ] Leer cron jobs reales de OpenClaw (`cron list`)
+ROADMAP.md:116:- [x] **Lista de sesiones** → todas las sesiones de OpenClaw (main, cron, subagent, chats)
+ROADMAP.md:131:  - MODIFIED: `src/components/TenacitOS/Dock.tsx` (añadida entrada Sessions)
+ROADMAP.md:147:  - MODIFIED: `src/components/TenacitOS/TopBar.tsx`
+ROADMAP.md:169:- [ ] Ver configuración actual de OpenClaw
+ROADMAP.md:374:| AI Integration | OpenClaw API + direct model calls para suggestions |
+README.md:1:# TenacitOS — Mission Control
+README.md:3:A real-time dashboard and control center for [OpenClaw](https://openclaw.ai) AI agent instances. Built with Next.js, React 19, and Tailwind CSS v4.
+README.md:5:> **TenacitOS** lives inside your OpenClaw workspace and reads its configuration, agents, sessions, memory, and logs directly from the host. No extra database or backend required — OpenClaw is the backend.
+README.md:13:- **💰 Cost Tracking** — Real cost analytics from OpenClaw sessions (SQLite)
+README.md:32:**Session History** — all OpenClaw sessions with token usage and context tracking
+README.md:53:- **[OpenClaw](https://openclaw.ai)** installed and running on the same host
+README.md:61:TenacitOS reads directly from your OpenClaw installation:
+README.md:70:└── workspace/mission-control/ ← TenacitOS lives here
+README.md:79:### 1. Clone into your OpenClaw workspace
+README.md:83:git clone https://github.com/carlosazaustre/tenacitOS.git mission-control
+README.md:84:cd mission-control
+README.md:105:# --- OpenClaw paths (optional — defaults work for standard installs) ---
+README.md:109:NEXT_PUBLIC_AGENT_NAME=Mission Control
+README.md:111:NEXT_PUBLIC_AGENT_DESCRIPTION=Your AI co-pilot, powered by OpenClaw
+README.md:120:NEXT_PUBLIC_APP_TITLE=Mission Control
+README.md:123:> **Tip:** `OPENCLAW_DIR` defaults to `/root/.openclaw`. If your OpenClaw is installed elsewhere, set this variable.
+README.md:168:pm2 start npm --name "mission-control" -- start
+README.md:175:Create `/etc/systemd/system/mission-control.service`:
+README.md:179:Description=TenacitOS — OpenClaw Mission Control
+README.md:185:WorkingDirectory=/root/.openclaw/workspace/mission-control
+README.md:197:sudo systemctl enable mission-control
+README.md:198:sudo systemctl start mission-control
+README.md:204:mission-control.yourdomain.com {
+README.md:281:Usage is collected from OpenClaw's SQLite databases via a script:
+README.md:298:mission-control/
+README.md:306:│   │   ├── TenacitOS/        # OS-style UI shell (topbar, dock, status bar)
+README.md:405:- [OpenClaw](https://openclaw.ai) — the AI agent runtime this dashboard is built for
+README.md:406:- [OpenClaw Docs](https://docs.openclaw.ai)
+SECURITY.md:53:5. **OpenClaw Gateway**
+SECURITY.md:127:Thank you for helping keep Mission Control secure! 🔒
+CONTRIBUTING.md:1:# Contributing to Mission Control
+CONTRIBUTING.md:8:2. Clone your fork: `git clone https://github.com/YOUR-USERNAME/mission-control.git`
+CONTRIBUTING.md:343:- OpenClaw version: [e.g., 2026.2.19]
+CONTRIBUTING.md:363:- **Discord**: [OpenClaw Community](https://discord.com/invite/clawd)
+docs/superpowers/plans/2026-03-28-flowops-ai-rebrand-implementation.md:31:rg -n "Mission Control|mission-control|MissionCtrl|TenacitOS|OpenClaw" README.md ROADMAP.md CONTRIBUTING.md SECURITY.md docs public src .env.example package.json > tmp/rebrand-scan-before.txt
+docs/superpowers/plans/2026-03-28-flowops-ai-rebrand-implementation.md:64:perl -0pi -e 's/\bMission Control\b/FlowOps AI/g; s/\bmission-control\b/flowops-ai/g; s/\bMissionCtrl\b/FlowOpsAI/g; s/\bTenacitOS\b/FlowOps AI/g' README.md ROADMAP.md CONTRIBUTING.md SECURITY.md docs/COST-TRACKING.md
+docs/superpowers/plans/2026-03-28-flowops-ai-rebrand-implementation.md:72:rg -n "Mission Control|mission-control|MissionCtrl|TenacitOS" README.md ROADMAP.md CONTRIBUTING.md SECURITY.md docs/COST-TRACKING.md
+docs/superpowers/plans/2026-03-28-flowops-ai-rebrand-implementation.md:118:perl -0pi -e 's/\bMission Control\b/FlowOps AI/g; s/\bTenacitOS\b/FlowOps AI/g' src/app/layout.tsx src/app/login/page.tsx src/app/office/page.tsx src/app/\(dashboard\)/page.tsx src/app/\(dashboard\)/settings/page.tsx src/app/\(dashboard\)/workflows/page.tsx src/components/Sidebar.tsx
+docs/superpowers/plans/2026-03-28-flowops-ai-rebrand-implementation.md:154:NEXT_PUBLIC_AGENT_DESCRIPTION=Your AI co-pilot, powered by OpenClaw
+docs/superpowers/plans/2026-03-28-flowops-ai-rebrand-implementation.md:162:perl -0pi -e 's/\bMission Control\b/FlowOps AI/g; s/\bmission-control\b/flowops-ai/g' src/app/api/system/stats/route.ts src/app/api/system/monitor/route.ts src/app/api/health/route.ts src/app/\(dashboard\)/logs/page.tsx src/app/\(dashboard\)/terminal/page.tsx src/app/\(dashboard\)/actions/page.tsx
+docs/superpowers/plans/2026-03-28-flowops-ai-rebrand-implementation.md:182:rg -n "Mission Control|mission-control|MissionCtrl|TenacitOS" README.md ROADMAP.md CONTRIBUTING.md SECURITY.md docs public src .env.example package.json > tmp/rebrand-scan-after.txt || true
+public/manifest.json:2:  "name": "Mission Control",
+public/manifest.json:3:  "short_name": "MissionCtrl",
+.env.example:1:# Admin credentials for Mission Control
+.env.example:5:# OpenClaw paths (defaults shown - override if your setup differs)
+.env.example:10:NEXT_PUBLIC_AGENT_NAME=Mission Control
+.env.example:12:NEXT_PUBLIC_AGENT_DESCRIPTION=Your AI co-pilot, powered by OpenClaw
+.env.example:21:NEXT_PUBLIC_APP_TITLE=Mission Control
+docs/COST-TRACKING.md:3:Mission Control now tracks real usage costs by reading OpenClaw session data and calculating costs based on actual token usage.
+docs/COST-TRACKING.md:32:cd /root/.openclaw/workspace/mission-control
+docs/COST-TRACKING.md:37:- Read current OpenClaw session data
+docs/COST-TRACKING.md:46:cd /root/.openclaw/workspace/mission-control
+docs/COST-TRACKING.md:59:tail -f /var/log/mission-control-usage.log
+docs/COST-TRACKING.md:167:- Restart: `systemctl restart mission-control`
+package.json:2:  "name": "mission-control",
+src/config/branding.ts:10:  agentName: process.env.NEXT_PUBLIC_AGENT_NAME || "Mission Control",
+src/config/branding.ts:31:  appTitle: process.env.NEXT_PUBLIC_APP_TITLE || "Mission Control",
+src/lib/usage-collector.ts:2: * Usage Collector - Reads OpenClaw session data and calculates costs
+src/lib/usage-collector.ts:39: * Get current OpenClaw status with session data
+src/lib/usage-collector.ts:41:export async function getOpenClawStatus(): Promise<any> {
+src/lib/usage-collector.ts:46:    console.error("Error getting OpenClaw status:", error);
+src/lib/usage-collector.ts:202:    const status = await getOpenClawStatus();
+src/lib/pricing.ts:2: * OpenClaw Model Pricing
+src/lib/pricing.ts:118:  // Handle short aliases and OpenClaw format (without provider prefix)
+src/lib/pricing.ts:126:    // OpenClaw format (without provider/)
+src/components/TenacitOS/TopBar.tsx:60:            TenacitOS
+src/components/CronWeeklyTimeline.tsx:34:  "#FFCC02", // yellow (TenacitOS accent)
+src/components/Sidebar.tsx:211:            Mission Control
+src/components/Sidebar.tsx:291:            OpenClaw Agent
+src/app/office/page.tsx:4:  title: 'The Office 3D | Mission Control',
+src/app/login/page.tsx:66:            Mission Control
+src/app/layout.tsx:22:  title: "Mission Control - OpenClaw",
+src/app/layout.tsx:23:  description: "Your OpenClaw agent dashboard",
+src/app/globals.css:5:   TenacitOS Design System
+src/components/Office3D/Office3D.tsx:229:                        <span>Phase 0: TenacitOS Shell</span>
+src/components/Office3D/Office3D.tsx:242:                    Full roadmap available at workspace/mission-control/ROADMAP.md
+src/app/api/system/stats/route.ts:8:const SYSTEMD_SERVICES = ["mission-control", "content-vault", "classvault", "creatoros"];
+src/app/api/system/services/route.ts:13:const ALLOWED_SERVICES_SYSTEMD = ['mission-control', 'openclaw-gateway', 'nginx'];
+src/app/api/system/route.ts:25:    return { name: 'OpenClaw Agent', creature: 'AI Agent', emoji: '🤖' };
+src/app/api/system/monitor/route.ts:9:const SYSTEMD_SERVICES = ["mission-control"];
+src/app/api/system/monitor/route.ts:63:  "mission-control": "Mission Control – Tenacitas Dashboard",
+src/app/api/system/monitor/route.ts:261:      { port: "3000", action: "ALLOW", from: "Tailscale (100.64.0.0/10)", comment: "Mission Control via Tailscale" },
+src/components/Office3D/agentsConfig.ts:5: * Names, emojis and roles are loaded at runtime from the OpenClaw API
+src/components/Office3D/agentsConfig.ts:14: * Add, remove or reposition agents to match your own OpenClaw setup.
+src/components/Office3D/agentsConfig.ts:29:    name: process.env.NEXT_PUBLIC_AGENT_NAME || "Mission Control",
+src/app/api/logs/stream/route.ts:8:const ALLOWED_SERVICES = ['mission-control', 'classvault', 'content-vault', 'postiz-simple', 'brain', 'openclaw-gateway'];
+src/app/api/logs/stream/route.ts:12:  const service = searchParams.get('service') || 'mission-control';
+src/app/api/health/route.ts:61:    checkSystemdService('mission-control'),
+src/app/api/health/route.ts:64:  checks.push({ ...missionControl, name: 'Mission Control' });
+src/app/api/health/route.ts:65:  checks.push({ ...gateway, name: 'OpenClaw Gateway' });
+src/app/api/git/route.ts:127:const ALLOWED_REPOS = [WORKSPACE + '/mission-control', WORKSPACE];
+src/app/api/files/write/route.ts:15:  'mission-control': path.join(OPENCLAW_DIR, 'workspace', 'mission-control'),
+src/app/api/agents/[id]/status/route.ts:48:    // Get session info (from OpenClaw API if available)
+src/app/api/agents/route.ts:35:    name: process.env.NEXT_PUBLIC_AGENT_NAME || "Mission Control",
+src/app/api/files/upload/route.ts:10:  'mission-control': path.join(OPENCLAW_DIR, 'workspace', 'mission-control'),
+src/app/api/files/mkdir/route.ts:9:  'mission-control': path.join(OPENCLAW_DIR, 'workspace', 'mission-control'),
+src/app/api/files/download/route.ts:10:  'mission-control': path.join(OPENCLAW_DIR, 'workspace', 'mission-control'),
+src/app/api/actions/route.ts:84:        const services = ['mission-control'];
+src/app/api/actions/route.ts:119:        const { stdout, stderr } = await execAsync(`cd "${WORKSPACE}/mission-control" && npm audit --json 2>/dev/null | node -e "const d=require('fs').readFileSync('/dev/stdin','utf-8');const j=JSON.parse(d);console.log('Vulnerabilities: '+JSON.stringify(j.metadata?.vulnerabilities||{}))" 2>&1`).catch((e) => ({ stdout: '', stderr: e.message }));
+src/app/api/files/delete/route.ts:10:  'mission-control': path.join(OPENCLAW_DIR, 'workspace', 'mission-control'),
+src/app/(dashboard)/workflows/page.tsx:166:    description: "Sesión autónoma nocturna que implementa mejoras en Mission Control según el ROADMAP o inventa features nuevas útiles.",
+src/app/(dashboard)/workflows/page.tsx:171:      "Lee ROADMAP.md de Mission Control para seleccionar la siguiente feature",
+src/app/(dashboard)/terminal/page.tsx:19:  "systemctl status mission-control",
+src/app/(dashboard)/terminal/page.tsx:22:  "git -C /root/.openclaw/workspace/mission-control status",
+src/app/(dashboard)/terminal/page.tsx:23:  "journalctl -u mission-control -n 20 --no-pager",
+src/app/(dashboard)/skills/page.tsx:14:import { SectionHeader, MetricCard } from "@/components/TenacitOS";
+src/app/(dashboard)/skills/page.tsx:106:          Skills disponibles en el sistema OpenClaw
+src/app/api/cron/route.ts:17:// GET: List all cron jobs from the OpenClaw gateway
+src/app/api/cron/route.ts:54:      { error: "Failed to fetch cron jobs from OpenClaw gateway" },
+src/app/(dashboard)/settings/page.tsx:134:          <span>Mission Control v1.0.0</span>
+src/app/(dashboard)/settings/page.tsx:135:          <span>OpenClaw Agent Dashboard</span>
+src/app/(dashboard)/sessions/page.tsx:669:            All OpenClaw agent sessions — main, cron, sub-agents, and chats
+src/app/(dashboard)/cron/page.tsx:104:            Scheduled tasks from OpenClaw Gateway
+src/app/(dashboard)/cron/page.tsx:273:            Create cron jobs via Telegram or the OpenClaw CLI
+src/app/(dashboard)/page.tsx:77:          🦞 Mission Control
+src/app/(dashboard)/logs/page.tsx:13:  { name: "mission-control", backend: "systemd", label: "Mission Control" },
+src/app/(dashboard)/layout.tsx:3:import { Dock, TopBar, StatusBar } from "@/components/TenacitOS";
+src/app/(dashboard)/actions/page.tsx:52:    description: "Restart the OpenClaw gateway service",
+src/app/(dashboard)/actions/page.tsx:68:    description: "Check for vulnerabilities in mission-control dependencies",
+src/app/(dashboard)/about/page.tsx:97:    `AI assistant for ${ownerUsername}. Powered by OpenClaw.`;
+src/app/(dashboard)/about/page.tsx:186:                OpenClaw + Claude
+src/app/(dashboard)/about/page.tsx:329:              <span style={{ color: "var(--accent)" }}>OpenClaw</span> with
+src/app/(dashboard)/about/page.tsx:502:              OpenClaw
