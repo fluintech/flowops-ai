@@ -1,2 +1,0 @@
-scan_file=tmp/rebrand-scan-before.txt
-line_count=131

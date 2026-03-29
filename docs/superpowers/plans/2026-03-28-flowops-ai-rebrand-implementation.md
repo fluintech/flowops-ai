@@ -179,7 +179,7 @@ git commit -m "chore: rename operational labels and package name to flowops-ai"
 
 Run:
 ```bash
-rg -n "Mission Control|mission-control|MissionCtrl|TenacitOS" README.md ROADMAP.md CONTRIBUTING.md SECURITY.md docs public src .env.example package.json > tmp/rebrand-scan-after.txt || true
+rg -n "Mission Control|mission-control|MissionCtrl|TenacitOS|OpenClaw" README.md ROADMAP.md CONTRIBUTING.md SECURITY.md docs public src .env.example package.json > tmp/rebrand-scan-after.txt || true
 ```
 Expected: arquivo vazio ou apenas referências legadas deliberadamente preservadas.
 
