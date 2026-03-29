@@ -5,7 +5,7 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
 
 # Cron entry (runs every hour at minute 0)
-CRON_ENTRY="0 * * * * cd $PROJECT_DIR && npx tsx scripts/collect-usage.ts >> /var/log/mission-control-usage.log 2>&1"
+CRON_ENTRY="0 * * * * cd $PROJECT_DIR && npx tsx scripts/collect-usage.ts >> /var/log/flowops-ai-usage.log 2>&1"
 
 echo "Setting up cron job for usage collection..."
 echo "Schedule: Every hour at minute 0"
@@ -29,4 +29,4 @@ echo "To verify:"
 echo "  crontab -l"
 echo
 echo "To view logs:"
-echo "  tail -f /var/log/mission-control-usage.log"
+echo "  tail -f /var/log/flowops-ai-usage.log"

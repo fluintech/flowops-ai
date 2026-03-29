@@ -226,7 +226,7 @@ export default function Office3D() {
                     <ul className="space-y-2">
                       <li className="flex items-center gap-2">
                         <span className="text-green-400">✓</span>
-                        <span>Phase 0: TenacitOS Shell</span>
+                        <span>Phase 0: FlowOps AI Shell</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <span className="text-yellow-400">●</span>
@@ -239,7 +239,7 @@ export default function Office3D() {
                     </ul>
                   </div>
                   <p className="text-sm text-gray-500 italic">
-                    Full roadmap available at workspace/mission-control/ROADMAP.md
+                    Full roadmap available at workspace/flowops-ai/ROADMAP.md
                   </p>
                 </>
               )}

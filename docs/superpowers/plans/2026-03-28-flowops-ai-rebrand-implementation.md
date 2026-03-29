@@ -57,7 +57,7 @@ git commit -m "chore: capture branding baseline scan for FlowOps AI rebrand"
 - Modify: `SECURITY.md`
 - Modify: `docs/COST-TRACKING.md`
 
-- [ ] **Step 1: Aplicar renomeações de branding na documentação**
+- [x] **Step 1: Aplicar renomeações de branding na documentação**
 
 Run:
 ```bash
@@ -65,7 +65,7 @@ perl -0pi -e 's/\bMission Control\b/FlowOps AI/g; s/\bmission-control\b/flowops-
 ```
 Expected: docs refletem o novo nome e labels legados principais deixam de aparecer.
 
-- [ ] **Step 2: Verificar somente docs**
+- [x] **Step 2: Verificar somente docs**
 
 Run:
 ```bash
@@ -73,7 +73,7 @@ rg -n "Mission Control|mission-control|MissionCtrl|TenacitOS" README.md ROADMAP.
 ```
 Expected: sem resultados, exceto casos intencionais em histórico (se houver).
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add README.md ROADMAP.md CONTRIBUTING.md SECURITY.md docs/COST-TRACKING.md
@@ -93,7 +93,7 @@ git commit -m "docs: rebrand project documentation to FlowOps AI"
 - Modify: `src/app/(dashboard)/workflows/page.tsx`
 - Modify: `src/components/Sidebar.tsx`
 
-- [ ] **Step 1: Atualizar defaults e metadados principais**
+- [x] **Step 1: Atualizar defaults e metadados principais**
 
 Edits:
 ```ts
@@ -111,7 +111,7 @@ appTitle: process.env.NEXT_PUBLIC_APP_TITLE || "FlowOps AI"
 }
 ```
 
-- [ ] **Step 2: Atualizar strings visíveis de UI**
+- [x] **Step 2: Atualizar strings visíveis de UI**
 
 Run:
 ```bash
@@ -119,7 +119,7 @@ perl -0pi -e 's/\bMission Control\b/FlowOps AI/g; s/\bTenacitOS\b/FlowOps AI/g' 
 ```
 Expected: títulos, cabeçalhos e descrições visíveis exibem FlowOps AI.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add public/manifest.json src/config/branding.ts src/app/layout.tsx src/app/login/page.tsx src/app/office/page.tsx src/app/\(dashboard\)/page.tsx src/app/\(dashboard\)/settings/page.tsx src/app/\(dashboard\)/workflows/page.tsx src/components/Sidebar.tsx
@@ -138,7 +138,7 @@ git commit -m "feat: apply FlowOps AI branding across UI metadata and labels"
 - Modify: `src/app/(dashboard)/terminal/page.tsx`
 - Modify: `src/app/(dashboard)/actions/page.tsx`
 
-- [ ] **Step 1: Atualizar nome de pacote e defaults de ambiente**
+- [x] **Step 1: Atualizar nome de pacote e defaults de ambiente**
 
 Edits:
 ```json
@@ -155,7 +155,7 @@ NEXT_PUBLIC_AGENT_DESCRIPTION=Your AI co-pilot, powered by OpenClaw
 NEXT_PUBLIC_APP_TITLE=FlowOps AI
 ```
 
-- [ ] **Step 2: Atualizar labels operacionais sem mudar comandos/serviços**
+- [x] **Step 2: Atualizar labels operacionais sem mudar comandos/serviços**
 
 Run:
 ```bash
@@ -163,7 +163,7 @@ perl -0pi -e 's/\bMission Control\b/FlowOps AI/g; s/\bmission-control\b/flowops-
 ```
 Expected: labels e caminhos nominais mudam para FlowOps AI; lógica continua idêntica.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add package.json .env.example src/app/api/system/stats/route.ts src/app/api/system/monitor/route.ts src/app/api/health/route.ts src/app/\(dashboard\)/logs/page.tsx src/app/\(dashboard\)/terminal/page.tsx src/app/\(dashboard\)/actions/page.tsx
@@ -175,7 +175,7 @@ git commit -m "chore: rename operational labels and package name to flowops-ai"
 **Files:**
 - Output: `tmp/rebrand-scan-after.txt`
 
-- [ ] **Step 1: Rodar busca residual global**
+- [x] **Step 1: Rodar busca residual global**
 
 Run:
 ```bash
@@ -191,8 +191,9 @@ npm run lint
 npm run build
 ```
 Expected: ambos os comandos completam com sucesso.
+Observed in this execution: `eslint` and `next` binaries were not available in PATH (`sh: eslint: not found`, `sh: next: not found`), so this step requires environment setup before re-run.
 
-- [ ] **Step 3: Revisar diff final e commit de fechamento**
+- [x] **Step 3: Revisar diff final e commit de fechamento**
 
 Run:
 ```bash

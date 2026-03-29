@@ -4,7 +4,7 @@
 
 set -e
 
-echo "🔒 Mission Control - Pre-Commit Security Check"
+echo "🔒 FlowOps AI - Pre-Commit Security Check"
 echo "================================================"
 echo ""
 

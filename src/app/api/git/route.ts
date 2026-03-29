@@ -124,7 +124,7 @@ export async function GET() {
   }
 }
 
-const ALLOWED_REPOS = [WORKSPACE + '/mission-control', WORKSPACE];
+const ALLOWED_REPOS = [WORKSPACE + '/flowops-ai', WORKSPACE];
 
 export async function POST(request: NextRequest) {
   try {

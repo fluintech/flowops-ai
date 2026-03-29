@@ -1,0 +1,2 @@
+src/app/(dashboard)/skills/page.tsx:14:import { SectionHeader, MetricCard } from "@/components/TenacitOS";
+src/app/(dashboard)/layout.tsx:3:import { Dock, TopBar, StatusBar } from "@/components/TenacitOS";
